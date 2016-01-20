@@ -23,8 +23,8 @@ outs asig, asig
 garvb += asig * irvbgain
 endin
 
-instr 111 ; harpsichord reverb
-irvbtime = 0.05
+instr 111 ; reverb
+irvbtime = 0.01
 asig reverb garvb, irvbtime 
 outs asig, asig
 garvb = 0
@@ -35,40 +35,53 @@ idur = p3
 iamp = ampdb(p4)
 inote = cpspch(p5)
 iatk = .01
-irel = .2
+irel = idur * .50
+ibalance = .5
 
 ivbdel = .4 * idur
-ivbrel = .01
+ivbrel = .15
 ivbsus = idur - (ivbdel + ivbrel)
 ivbrt = 7
 ivbdpt = 4
+
+irvbgain = .01
 
 kvbenv linseg 0, ivbdel, 1, ivbsus, 1, ivbrel, 0
 kvib oscil kvbenv * ivbdpt, ivbrt, 2
 kamp linen iamp, iatk, idur, irel
 asig oscil kamp, inote + kvib, 3
-	out asig
+	outs asig * ibalance, asig * (1- ibalance)
+garvb += asig * irvbgain
 	endin
 
-instr 3 ; bass
+instr 4 ; sweep bass
 idur = p3
-iamp = ampdb(p4)
+iamp = ampdb(p4) * 2
 inote = cpspch(p5)
-iatk = .01
-irel = .2
+iatk = .002
+irel = .001
 
-ivbdel = .4 * idur
-ivbrel = .01
+ivbdel = .01 * idur
+ivbrel = .58 * idur
 ivbsus = idur - (ivbdel + ivbrel)
-ivbrt = 7
-ivbdpt = 4
+ivbrt = 4
+ivbdpt = 2
 
-knh   = 12
+ibalance = 0.5
 
+irvbgain = .15
+
+iexpsegatk = .16
+k1 expseg 3000, iexpsegatk, 9000, idur - iexpsegatk, 1
+ksweep = k1 - 3000
+a1 oscil iamp, inote, 3
+a2 oscil iamp, inote*1.002, 2
+a2 butterlp a1 + a2, ksweep
+a3 butterhp a2, 65
+a4 butterlp a3, 1000
 kvbenv linseg 0, ivbdel, 1, ivbsus, 1, ivbrel, 0
 kvib oscil kvbenv * ivbdpt, ivbrt, 2
-kamp linen iamp, iatk, idur, irel
-asig buzz kamp, inote + kvib, knh, 2
-	out asig
-	endin
-
+asig linen a4 + kvib, iatk, idur, irel
+outs asig * ibalance, asig * (1 - ibalance)
+garvb += asig * irvbgain
+endin
