@@ -410,6 +410,47 @@ i.     .    $d8   $af  5$g
 i.     .    $d8   $af  5$b
 i.     .    $d8   $af  6$f
 ; b28
+i.     .    $d8   $af  6$c
+i.     .    $d8   $af  6$g
+i.     .    $d8   $af  6$ees
+i.     .    $d8   $af  5$f
+i.     .    $d8   $af  5$aes
+i.     .    $d8   $af  6$ees
+; b29
+i.     .    $d8   $af  5$b
+i.     .    $d8   $af  6$f
+i.     .    $d8   $af  6$d
+i.     .    $d8   $af  5$g
+i.     .    $d8   $af  5$b
+i.     .    $d8   $af  6$f
+; b30
+i.     .    $d8   $af  6$c
+i.     .    $d8   $af  7$c
+i.     .    $d8   $af  6$g
+i.     .    $d8   $af  6$e
+i.     .    $d8   $af  6$g
+i.     .    $d8   $af  6$c
+; b31
+i.     .    $d8   $af  6$f
+i.     .    $d8   $af  7$c
+i.     .    $d8   $af  6$a
+i.     .    $d8   $af  5$b
+i.     .    $d8   $af  6$d
+i.     .    $d8   $af  6$g
+; b32
+i.     .    $d8   $af  6$e
+i.     .    $d8   $af  6$b
+i.     .    $d8   $af  6$g
+i.     .    $d8   $af  5$a
+i.     .    $d8   $af  6$c
+i.     .    $d8   $af  6$g
+; b33
+i.     .    $d8   $af  6$d
+i.     .    $d8   $af  6$a
+i.     .    $d8   $af  6$f
+i.     .    $d8   $af  5$g
+i.     .    $d8   $af  5$b
+i.     .    $d8   $af  6$f
 
 ; voice one
 ; b27
@@ -417,37 +458,98 @@ i2     0    $d4   $af 8$f
 i.     +    $d8   $af 8$ees
 i.     .    $d4d  $af 8$f
 ; b28
+i.     .    $d8   0   0
+i.     .    $d8   $af 8$c
+i.     .    $d8   $af 8$d
+i.     .    $d8   $af 8$ees
+i.     .    $d8   $af 8$d
+i.     .    $d8   $af 8$c
+; b29
+i.     .    $d4   $af 8$d
+i.     .    $d8   $af 8$c
+i.     .    $d4d  $af 8$d
+; b30
+i.     .    $d8   0   0
+i.     .    $d8   $af 8$c
+i.     .    $d8   $af 8$d
+i.     .    $d8   $af 8$e
+i.     .    $d8   $af 8$f
+i.     .    $d8   $af 8$g
+; b31
+i.     .    $d4   $af 8$a
+i.     .    $d8   $af 8$g
+i.     .    $d4d  $af 8$a
+; b32
+i.     .    $d8   0   0
+i.     .    $d8   $af 8$e
+i.     .    $d8   $af 8$f
+i.     .    $d8   $af 8$g
+i.     .    $d8   $af 8$f
+i.     .    $d8   $af 8$e
+; b33
+i.     .    $d4   $af 8$f
+i.     .    $d8   $af 8$e
+i.     .    $d4   $af 7$b
+i.     .    $d8   $af 8$d
+
+s ; penultimate section
+t 0 100
+; voice two
+; b34
+i4     0    $d8  $af 6$c 
+i.     +    $d8  $af 7$c 
+i.     .    $d8  $af 7$c 
+i.     .    $d8  $af 6$f
+i.     .    $d8  $af 7$c
+i.     ^+0  $d8  $af 6$aes
+i.     +    $d8  $af 6$aes
+i.     ^+0  $d8  $af 6$f
+; b35
+i.     +    $d8  $af 6$c 
+i.     .    $d8  $af 7$c 
+i.     .    $d8  $af 7$c 
+i.     .    $d8  $af 6$f
+i.     .    $d8  $af 7$c
+i.     ^+0  $d8  $af 6$aes
+i.     +    $d8  $af 6$aes
+i.     ^+0  $d8  $af 6$f
+
+; voice one
+; b34 b35
+i2     0    [2 * $d2d] $af 8$c
 
 s ; final section 
 
 t 0 100 [2 * 3 * $d4] 50; tempo
 
 ; voice two
+; b36
 ;instr strt dur  amp note
 i4     0    $d8  $af 6$c 
 i.     +    $d8  $af 7$c 
 i.     .    $d8  $af 7$c 
 i.     .    $d8  $af 6$f
 i.     .    $d8  $af 7$c
-i.     ^+0  $d8  $af 6$a
-i.     ^+0  $d8  $af 6$f
-i.     +    $d8  $af 7$c
 i.     ^+0  $d8  $af 6$aes
 i.     ^+0  $d8  $af 6$f
-; b?
+i.     +    $d8  $af 7$d
+i.     ^+0  $d8  $af 6$aes
+i.     ^+0  $d8  $af 6$f
+; b37
 i.     +    $d2d $af 6$c
 i.     ^+0  $d2d $af 6$g
 i.     ^+0  $d2d $af 6$e
 
 ; voice one
 ;instr strt dur  amp note
+; b36
 i2     0    $d8  0   0
 i.     +    $d8  $af 8$e
 i.     .    $d8  $af 8$ees
 i.     .    $d8  $af 8$d
 i.     .    $d8  $af 8$c
 i.     .    $d8  $af 7$b
-; b?
+; b37
 i.     .    $d2d $af 8$c
 
 s ; piece end
