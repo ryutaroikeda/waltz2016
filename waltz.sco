@@ -396,7 +396,7 @@ i.     .    $d8   $af 7$a
 i.     .    $d8   $af 8$d
 i.     .    $d8   $af 7$b
 i.     .    $d4   $af 8$c
-i.     .    $d16  $af 8$des
+i.     .    $d16  $af 8$d
 i.     .    $d16  $af 8$ees
 
 s ; section four
